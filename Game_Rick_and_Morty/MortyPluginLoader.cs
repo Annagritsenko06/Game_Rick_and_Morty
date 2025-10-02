@@ -8,56 +8,38 @@ namespace RickAndMortyGame.GameCore
 {
     internal static class MortyPluginLoader
     {
-        public static void TryLoadMortyAssemblies()
+        public static void TryLoadMortyAssemblies(string mortyName)
         {
             try
             {
-                string baseDir = AppContext.BaseDirectory;
-                string solutionRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", ".."));
-
-                var candidateDirs = new List<string>();
-                string[] configs = new[] { "Debug", "Release" };
-                foreach (var cfg in configs)
+                string dllPath = mortyName switch
                 {
-                    candidateDirs.Add(Path.Combine(solutionRoot, "ClassicMorty", "bin", cfg, "net8.0"));
-                    candidateDirs.Add(Path.Combine(solutionRoot, "LazyMorty", "bin", cfg, "net8.0"));
+                    "ClassicMorty" => @"D:\5 СЕМ\стажировка\task 4\Game_Rick_and_Morty\ClassicMorty\bin\Debug\net8.0\ClassicMorty.dll",
+                    "LazyMorty" => @"D:\5 СЕМ\стажировка\task 4\Game_Rick_and_Morty\LazyMorty\bin\Debug\net8.0\LazyMorty.dll",
+                    _ => string.Empty
+                };
+
+                if (string.IsNullOrWhiteSpace(dllPath) || !File.Exists(dllPath))
+                {
+                    Console.WriteLine($"Assembly for {mortyName} was not found.");
+                    return;
                 }
 
-                foreach (var dir in candidateDirs.Distinct())
+                if (AppDomain.CurrentDomain.GetAssemblies()
+                    .Any(a => SafeLocationEquals(a, dllPath)))
                 {
-                    if (!Directory.Exists(dir))
-                    {
-                        continue;
-                    }
-
-                    foreach (var dll in Directory.EnumerateFiles(dir, "*.dll", SearchOption.TopDirectoryOnly))
-                    {
-                        string fileName = Path.GetFileName(dll);
-                        if (!fileName.StartsWith("ClassicMorty", StringComparison.OrdinalIgnoreCase) &&
-                            !fileName.StartsWith("LazyMorty", StringComparison.OrdinalIgnoreCase))
-                        {
-                            continue;
-                        }
-
-                        try
-                        {
-                            if (AppDomain.CurrentDomain.GetAssemblies().Any(a => SafeLocationEquals(a, dll)))
-                            {
-                                continue;
-                            }
-                            Assembly.LoadFrom(dll);
-                        }
-                        catch
-                        {
-                        }
-                    }
+                    Console.WriteLine($"Assembly {mortyName} is already loaded.");
+                    return;
                 }
+
+                Assembly.LoadFrom(dllPath);
+                Console.WriteLine($"Morty assembly loaded: {dllPath}");
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error in TryLoadMortyAssemblies: {ex.Message}");
             }
         }
-
         private static bool SafeLocationEquals(Assembly assembly, string path)
         {
             try
