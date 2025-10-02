@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_Rick_and_Morty", "Game_Rick_and_Morty\Game_Rick_and_Morty.csproj", "{CECFFA23-AA75-4C95-B330-8E2878C29BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassicMorty", "ClassicMorty\ClassicMorty.csproj", "{51645D9D-3C78-4FC0-B718-C75865DB9CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyMorty", "LazyMorty\LazyMorty.csproj", "{82E463A9-240C-4D7C-9989-BE8B9A0E7609}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CECFFA23-AA75-4C95-B330-8E2878C29BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECFFA23-AA75-4C95-B330-8E2878C29BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECFFA23-AA75-4C95-B330-8E2878C29BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECFFA23-AA75-4C95-B330-8E2878C29BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51645D9D-3C78-4FC0-B718-C75865DB9CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51645D9D-3C78-4FC0-B718-C75865DB9CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51645D9D-3C78-4FC0-B718-C75865DB9CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51645D9D-3C78-4FC0-B718-C75865DB9CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E463A9-240C-4D7C-9989-BE8B9A0E7609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E463A9-240C-4D7C-9989-BE8B9A0E7609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E463A9-240C-4D7C-9989-BE8B9A0E7609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E463A9-240C-4D7C-9989-BE8B9A0E7609}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3370E697-7A10-4988-B818-6158C6223733}
+	EndGlobalSection
+EndGlobal
