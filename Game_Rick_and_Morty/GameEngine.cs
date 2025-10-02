@@ -22,7 +22,7 @@ namespace RickAndMortyGame.GameCore
             _stats = new GameStatistics();
 
             _randomnessProtocol = new Sha3BasedRandomGenerator();
-            MortyPluginLoader.TryLoadMortyAssemblies();
+            MortyPluginLoader.TryLoadMortyAssemblies(settings.MortyType);
             _morty = CreateMortyInstance(settings.MortyType);
             if (_morty == null)
             {
